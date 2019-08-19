@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="appSize">100dp</dimen>
+    <dimen name="appIconSize">40dp</dimen>
+    <dimen name="appNameHeight">20dp</dimen>
+    <dimen name="appNameWidth">100dp</dimen>
+    <dimen name="appContainerHeight">95dp</dimen>
+    <dimen name="appContainerWidth">90dp</dimen>
+</resources>
