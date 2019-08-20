@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.viewpager2fragments.Helper
 import com.example.viewpager2fragments.R
 import com.example.viewpager2fragments.apptrayitems.AppItem
 import kotlinx.android.synthetic.main.app_tray_fragment.*
@@ -37,6 +38,7 @@ class AppTrayFragment : Fragment() {
 */
 
     //private val appsAdapter by androidLazy { AppTrayFragmentAdapter(this) }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -69,10 +71,23 @@ class AppTrayFragment : Fragment() {
 
         initAdapter()
 
+        val args = arguments
+
         // test content for apps
         if (savedInstanceState == null) {
             val apps = mutableListOf<AppItem>()
-            for (i in 1..60) {
+
+            val title = args?.getString(Helper.KEY_TAB_TITLE)
+            var appCount = 0
+            when (title) {
+                Helper.TITLE_LIST[0] -> appCount = 60
+                Helper.TITLE_LIST[1] -> appCount = 3
+                Helper.TITLE_LIST[2] -> appCount = 7
+                Helper.TITLE_LIST[3] -> appCount = 9
+                Helper.TITLE_LIST[4] -> appCount = 10
+            }
+
+            for (i in 1..appCount) {
 
                 apps.add(
                     AppItem(
@@ -83,8 +98,6 @@ class AppTrayFragment : Fragment() {
             }
             (apps_grid_rv.adapter as AppTrayItemAdapter).addApps(apps)
         }
-
-
     }
 
     private fun initAdapter() {
@@ -100,6 +113,14 @@ class AppTrayFragment : Fragment() {
 
             // Store the movie data in a Bundle object
             val args = Bundle()
+            when (position) {
+                0 -> args.putString(Helper.KEY_TAB_TITLE, Helper.TITLE_LIST[0])
+                1 -> args.putString(Helper.KEY_TAB_TITLE, Helper.TITLE_LIST[1])
+                2 -> args.putString(Helper.KEY_TAB_TITLE, Helper.TITLE_LIST[2])
+                3 -> args.putString(Helper.KEY_TAB_TITLE, Helper.TITLE_LIST[3])
+                4 -> args.putString(Helper.KEY_TAB_TITLE, Helper.TITLE_LIST[4])
+            }
+
             //args.putString(MovieHelper.KEY_TITLE, movie.title)
             //  args.putInt(MovieHelper.KEY_RATING, movie.rating)
             // args.putString(MovieHelper.KEY_POSTER_URI, movie.posterUri)

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="textSize">14sp</dimen>
     <dimen name="appSize">100dp</dimen>
-    <dimen name="appIconSize">40dp</dimen>
+    <dimen name="appIconSize">60dp</dimen>
     <dimen name="appNameHeight">20dp</dimen>
     <dimen name="appNameWidth">100dp</dimen>
     <dimen name="appContainerHeight">95dp</dimen>

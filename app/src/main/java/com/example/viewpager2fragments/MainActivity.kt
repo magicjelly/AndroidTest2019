@@ -2,22 +2,24 @@ package com.example.viewpager2fragments
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.Lifecycle
-import androidx.viewpager2.widget.ViewPager2
-import com.example.viewpager2fragments.apptray.TestFragmentAdapter
+import androidx.viewpager.widget.ViewPager
+import com.example.viewpager2fragments.apptray.TestPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : FragmentActivity() {
 
-    private lateinit var viewPager: ViewPager2
+    //private lateinit var viewPager: ViewPager2
+    private lateinit var viewPager: ViewPager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val l: Lifecycle = lifecycle
+        //val l: Lifecycle = lifecycle
         viewPager = view_pager
-        viewPager.adapter = TestFragmentAdapter(supportFragmentManager, l)
+
+
+        viewPager.adapter = TestPagerAdapter(supportFragmentManager)
+        viewPager.setCurrentItem(1, false)
 
 
 /*        viewPager.adapter = object : FragmentStateAdapter(this) {

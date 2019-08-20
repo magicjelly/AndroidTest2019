@@ -11,7 +11,9 @@ class TestFragmentAdapter(fragmentManger: FragmentManager, lifeCycle: Lifecycle)
         return AppTrayFragment.newInstance(position)
     }
 
+    // pages in all, now, notifications,
     override fun getItemCount(): Int {
-        return 3
+        return 1
     }
+
 }
